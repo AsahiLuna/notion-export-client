@@ -1,10 +1,10 @@
 {
     "*backup_type": "single",
     "single" : {
-        "*backup_token": "backup_token_value",
+        "*backup_token": "secret_U3AWqBRx6KVdMT4vM9AaPc7EH7yzRiulHSrgtoEtjYP",
         "*page_id" : "ALPGO-AI-d113c4d0095448dabe6d75e8cbcfcdd9",
         "-page_type" : "page",
-        "-dump_path": "dump_path_value",
+        "-dump_path": "/root/workspace/index",
         "export_child_page": true,
         "page_parser_type": "md",
         "db_parser_type": "md",
