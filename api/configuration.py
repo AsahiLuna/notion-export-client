@@ -3,8 +3,7 @@ import sys
 import json
 from json import JSONDecodeError
 
-SEVER_ABS_PATH = os.path.dirname(sys.argv[0]) + "/"
-CONFIG_FILE_PATH = SEVER_ABS_PATH + "config.json"
+CONFIG_FILE_PATH = "./config.json"
 
 
 class Configuration:

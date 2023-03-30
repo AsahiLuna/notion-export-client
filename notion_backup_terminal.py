@@ -6,7 +6,7 @@ import os
 import sys
 import time
 
-from NotionDump import NotionBackupLogger
+# from NotionDump import NotionBackupLogger
 
 from api.notion_dump import NotionBackup
 
@@ -14,34 +14,34 @@ SEVER_ABS_PATH = os.path.dirname(sys.argv[0])
 LOG_FILE = SEVER_ABS_PATH + "/dump.log"
 
 
-class Logger(NotionBackupLogger):
-    def __init__(self):
-        super().__init__()
-        self.terminal = sys.stdout
-        self.__log = open(LOG_FILE, "a+", encoding='utf-8')
-        # 输出备份的时间
-        backup_time = time.strftime('backup_time: %Y-%m-%d %H:%M:%S\n', time.localtime(time.time()))
-        self.terminal.write(backup_time)
-        self.__log.write("\n###################################################\n")
-        self.__log.write(backup_time)
-        self.__log.flush()
+# class Logger(NotionBackupLogger):
+#     def __init__(self):
+#         super().__init__()
+#         self.terminal = sys.stdout
+#         self.__log = open(LOG_FILE, "a+", encoding='utf-8')
+#         # 输出备份的时间
+#         backup_time = time.strftime('backup_time: %Y-%m-%d %H:%M:%S\n', time.localtime(time.time()))
+#         self.terminal.write(backup_time)
+#         self.__log.write("\n###################################################\n")
+#         self.__log.write(backup_time)
+#         self.__log.flush()
 
-    def log_debug(self, log_str):
-        self.log_info(log_str)
+#     def log_debug(self, log_str):
+#         self.log_info(log_str)
 
-    def log_info(self, message):
-        self.log("[EXPORT KERNEL] " + str(message))
+#     def log_info(self, message):
+#         self.log("[EXPORT KERNEL] " + str(message))
 
-    def log(self, message):
-        self.terminal.write(message + "\n")
-        self.__log.write(message + "\n")
-        self.__log.flush()
+#     def log(self, message):
+#         self.terminal.write(message + "\n")
+#         self.__log.write(message + "\n")
+#         self.__log.flush()
 
-    def flush(self):
-        pass
+#     def flush(self):
+#         pass
 
 
 if __name__ == '__main__':
-    notion_back = NotionBackup(logger=Logger())
+    notion_back = NotionBackup()
     # 开始备份
     notion_back.start_dump()

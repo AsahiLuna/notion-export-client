@@ -11,7 +11,7 @@ from api.backup_info import BackupInfo
 import NotionDump
 
 SEVER_ABS_PATH = os.path.dirname(sys.argv[0])
-NotionDump.TMP_DIR = os.path.normpath(SEVER_ABS_PATH + "/buffer_file") + "/"
+NotionDump.TMP_DIR = os.path.normpath("./buffer_file") + "/"
 NotionDump.BUFFER_FILE = os.path.normpath(NotionDump.TMP_DIR + "/notion_download_buffer.json")
 
 VERSION = "3.0.0"
@@ -28,17 +28,17 @@ class NotionBackup:
             # dump api
         self.dump_api = None
 
-        if logger is not None:
-            NotionDump.LOGGER = logger
-        self.logger = NotionDump.LOGGER
+        # if logger is not None:
+        #     NotionDump.LOGGER = logger
+        self.logger = logger
 
         self.backup_root = ""
 
     def log(self, msg):
-        if self.logger is not None:
-            self.logger.log("[EXPORT CLIENT] " + str(msg))
-        else:
-            print("[EXPORT CLIENT] " + str(msg))
+        # if self.logger is not None:
+        #     self.logger.log("[EXPORT CLIENT] " + str(msg))
+        # else:
+        print("[EXPORT CLIENT] " + str(msg))
 
     def start_dump(self, force_auto=False):
         self.log("log write to dump.log")
